@@ -17,26 +17,70 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .modal-backdrop {
+            background-color: rgba(0,0,0,.0001) !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid" style="background-image: linear-gradient(#00BFFF, #FEFEFE,#5a8599, green);">
-        <div class="row"> 
-            <div class="col-sm-12">   
-                <h1>Trash Aware</h1><br/>
-                <h4>A Trash Sorting Game!</h4>
-            </div>
-        </div>
         <div class="row">
             <div class="col-sm-12">
-                <div style="height: 80vh; width: 90vh;">
+                <div style="height: 90vh; width: 90vh;">
                 </div>
             </div>
         </div>
         <footer class="page-footer font-small blue pt-4">
             <div class=class="footer-copyright text-center py-3">
-                © 2020 Copyright: Waste Aware, A Trash Sorting Game. 
+                © 2020 Copyright: Trash Aware, A Trash Sorting Game. 
             </div>
         </footer>
     </div>
+
+    <!------------[Dialogs]----------------->
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="dialogTitle">Welcome</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id="dialogBody">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              
+              <button id="dialogBtnClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+
+        showWelcomeDialog();
+
+    });//(End Of) Document.ready
+
+    function showWelcomeDialog()
+    {
+        //set the welcome text
+        $("#dialogBody").html("<h2>Trash Aware</h2><br/><h4>A Trash/Waste Sorting Game</h4>");
+
+        //hide the close button
+        $("#dialogBtnClose").hide();
+
+        //show modal
+        $('#myModal').modal('show');
+
+        //hide the dialog
+        setTimeout(function(){$('#myModal').modal('hide');}, 1000);
+
+    }//(End Of) Function showWelcomeDialog()
+</script>
