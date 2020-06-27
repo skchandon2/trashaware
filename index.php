@@ -22,7 +22,7 @@
     <div class="container-fluid" style="background-image: linear-gradient(#00BFFF, #FEFEFE, green);">
         <div class="row">    
             <h1>Trash Aware</h1>
-            <h4>A trash sorting game!</h4>
+            <h4>A Trash Sorting Game!</h4>
         </div>
         <div class="row">
             <div class="col-sm-12">
