@@ -18,19 +18,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
-        .modal-backdrop {
-            background-color: rgba(0,0,0,.0001) !important;
+        .modal-dialog {
+            background-color: rgba(0,0,0,.59) !important;
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid" style="background-image: linear-gradient(#00BFFF, #FEFEFE,#5a8599, green);">
+    <div class="container-fluid" style="background-image: linear-gradient(#8debfc, #FEFEFE,#5a8599, green);">
         <div class="row">
             <div class="col-sm-12">
                 <div style="height: 90vh; width: 90vh;">
+                    <svg style="height: 89vh; width: 90vh;">
+                        <path d="M625.778 544.342c0-18.242-12.594-33.533-29.554-37.661-0.722-28.6-24.102-51.569-52.858-51.569-16.842 0-31.837 7.886-41.521 20.162-5.43-7.022-13.93-11.546-23.49-11.546-16.402 0-29.698 13.306-29.698 29.716 0 1.43 0.106 2.834 0.302 4.212-2.494-0.45-5.058-0.698-7.682-0.698-23.778-0.002-43.050 19.286-43.050 43.076s19.274 43.077 43.050 43.077l145.836-0.002c21.364-0.042 38.669-17.382 38.669-38.766z"></path>
+                        Sorry, your browser does not support inline SVG.
+                      </svg>
                 </div>
             </div>
         </div>
+
+            
+
+
+
+
         <footer class="page-footer font-small blue pt-4">
             <div class=class="footer-copyright text-center py-3">
                 © 2020 Copyright: Trash Aware, A Trash Sorting Game. 
@@ -43,7 +53,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="dialogTitle">Welcome</h5>
+              <h5 class="modal-title" id="dialogTitle"></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -80,7 +90,21 @@
         $('#myModal').modal('show');
 
         //hide the dialog
-        setTimeout(function(){$('#myModal').modal('hide');}, 1000);
+        setTimeout(function(){$('#myModal').modal('hide');}, 2000);
 
     }//(End Of) Function showWelcomeDialog()
+
+    /*
+    svg path:
+        M = moveto
+        L = lineto
+        H = horizontal lineto
+        V = vertical lineto
+        C = curveto
+        S = smooth curveto
+        Q = quadratic Bézier curve
+        T = smooth quadratic Bézier curveto
+        A = elliptical Arc
+        Z = closepath
+    */
 </script>
