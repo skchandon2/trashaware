@@ -63,13 +63,13 @@
 
         <!--Bins-->
         <div id="garbage_bin" style="position: absolute; left: 20px; top: 0px">            
-            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="140px" height="140px">
+            <svg id="garbage_bin_svg" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="140px" height="140px">
                 <path d="M 10.3125 -0.03125 C 8.589844 -0.03125 7.164063 1.316406 7 3 L 2 3 L 2 5 L 6.96875 5 L 6.96875 5.03125 L 17.03125 5.03125 L 17.03125 5 L 22 5 L 22 3 L 17 3 C 16.84375 1.316406 15.484375 -0.03125 13.8125 -0.03125 Z M 10.3125 2.03125 L 13.8125 2.03125 C 14.320313 2.03125 14.695313 2.429688 14.84375 2.96875 L 9.15625 2.96875 C 9.296875 2.429688 9.6875 2.03125 10.3125 2.03125 Z M 4 6 L 4 22.5 C 4 23.300781 4.699219 24 5.5 24 L 18.59375 24 C 19.394531 24 20.09375 23.300781 20.09375 22.5 L 20.09375 6 Z M 7 9 L 8 9 L 8 22 L 7 22 Z M 10 9 L 11 9 L 11 22 L 10 22 Z M 13 9 L 14 9 L 14 22 L 13 22 Z M 16 9 L 17 9 L 17 22 L 16 22 Z"/>
             </svg>
         </div>
         
         <div id="recycle_bin" style="position: absolute; left: 170px; top: 0px">            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="140px" height="140px">
+            <svg id="recycle_bin_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="140px" height="140px">
                 <path fill="#096ABB" d="M7.5 34.5L7.5 34 3.495 5.929 3.497 5.5 36.5 5.5 36.5 6 32.505 33.929 32.502 34.5z"/>
                 <path fill="#036" d="M35.99,6l-3.98,27.859L32,33.929V34H8v-0.071l-0.01-0.07L4.01,6H35.99 M37,5H3v1l4,28v1h26v-1l4-28 V5L37,5z"/>
                 <path fill="#096ABB" d="M3,5.5C2.725,5.5,2.5,5.276,2.5,5V2c0-0.276,0.225-0.5,0.5-0.5h34c0.275,0,0.5,0.224,0.5,0.5v3 c0,0.276-0.225,0.5-0.5,0.5H3z"/>
@@ -85,7 +85,7 @@
         </div>
 
         <div id="green_bin" style="position: absolute; left: 270px; top: 0px">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 128 128" width="180px" height="180px">
+            <svg id="green_bin_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 30 128 128" width="180px" height="180px">
                 <path fill="#030" d="M81.9 126H42.5c-1.7 0-3-1.3-3-3s1.3-3 3-3h42.9c1.7 0 3 1.3 3 3S83.6 126 81.9 126z"/>
                 <!--path fill="#030" d="M81.9 126H29c-1.7 0-3-1.3-3-3s1.3-3 3-3h52.9c1.7 0 3 1.3 3 3S83.6 126 81.9 126zM14 126c-.8 0-1.6-.3-2.1-.9-.6-.6-.9-1.3-.9-2.1s.3-1.6.9-2.1c1.1-1.1 3.1-1.1 4.2 0 .6.6.9 1.3.9 2.1s-.3 1.6-.9 2.1C15.6 125.7 14.8 126 14 126z"/-->
                 <path fill="#396" d="M44.6,115h38.8c2.1,0,3.9-1.7,4-3.8L90,62.9H38l2.6,48.3C40.7,113.3,42.4,115,44.6,115z"/>
@@ -178,11 +178,21 @@
         var $w = $(window).width();
         var $h = $(window).height();
 
-        $("#garbage_bin").css({top: ($h-200)+ "px", left: ($w/2 - 200)+"px", width: ($w/10)+"px"});
-        //$("#garbage_bin > svg").attr({width: ($w/10)+"px", height: ($w/10)+"px"});
+        var garbageBinWidth = $w/7;
+        var gargbageBinTop = ($h-250+(10* (garbageBinWidth * 0.021)));
+        $("#garbage_bin").css({top: gargbageBinTop + "px", left: ($w/2 - ( garbageBinWidth + $w/10))+"px", width: garbageBinWidth+"px"});
+        $("#garbage_bin_svg").attr("width", garbageBinWidth);
+        //$("#garbage_bin_svg").attr("height", $w/10);
 
-        $("#recycle_bin").css({top: ($h-200)+ "px", left: ($w/2 - 50)+"px"});
-        $("#green_bin").css({top: ($h-200)+ "px", left: ($w/2 + 50)+"px"});
+        var recycleBinWidth = $w/7;
+        var recycleBinTop = ($h-250+(10*(recycleBinWidth * 0.021)));
+        $("#recycle_bin").css({top: recycleBinTop + "px", left: ($w/2 - ( recycleBinWidth/2))+"px", width: recycleBinWidth+"px"});
+        $("#recycle_bin_svg").attr("width", recycleBinWidth);
+
+        var greenBinWidth = $w/5;
+        var greenBinTop = ($h-250+(10*(greenBinWidth * 0.001)));
+        $("#green_bin").css({top: greenBinTop + "px", left: ($w/2 - ( greenBinWidth-($w/4)))+"px", width: greenBinWidth+"px"});
+        $("#green_bin_svg").attr("width", greenBinWidth);
     }//(End Of) function
     /*
     svg path:
