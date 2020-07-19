@@ -17,6 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/js/jquery.csv.min"></script>
     <style>
         .modal-dialog {
             background-color: rgba(0,0,0,.59) !important;
@@ -151,7 +152,8 @@
 
         //hide the dialog
         setTimeout(function(){$('#myModal').modal('hide');}, 2000);
-        readDataFromUWaterlooSite();
+        //readDataFromUWaterlooSite();
+        readDataFromGarbageTxt();
 
     }//(End Of) Function showWelcomeDialog()
 
@@ -160,6 +162,23 @@
     {
         $.ajax({
             url:'garbageSorting.txt',
+            type:'GET',
+            dataType: "text",
+            success: function(response)
+            {
+                //$('#content').html($(data).find('#firstHeading').html());
+                data = $.csv.toArrays(response);
+                console.log(data);
+            }
+        });
+
+
+    }//(End Of) function
+
+    function readDataFromGarbageTxt()
+    {
+        $.ajax({
+            url:'garbageItems.txt',
             type:'GET',
             success: function(data)
             {
@@ -217,6 +236,11 @@
 
         
     }//(End Of) function
+
+    //read csv
+    //https://github.com/typeiii/jquery-csv#readme
+
+
     /*
     svg path:
         M = moveto
