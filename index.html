@@ -258,6 +258,10 @@
             console.log($h)
             greenBinTop = $("#recycle_bin_corepath").offset().top -25 ; 
         }
+        if(greenBinTop < 100)
+        {
+            greenBinTop = $("#recycle_bin_corepath").offset().top -25 ;
+        }
         $("#green_bin").css({top: greenBinTop + "px", left: ($w/2 - ( greenBinWidth-($w/4)))+"px", width: greenBinWidth+"px"});
         $("#green_bin_svg").attr("width", greenBinWidth);
 
