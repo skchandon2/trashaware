@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <div id="displayItem" style="border: 3px solid #777; position: absolute; padding: 10px; font-weight: bold; font-size: 21px">
+        <div id="displayItem" style="border: 3px solid #777; width:300px; text-align: center; position: absolute; padding: 10px; font-weight: bold; font-size: 21px">
         </div>
         <div id="debugx"></div>
 
@@ -139,6 +139,7 @@
     var _jsGarbageItems = ["CHIP BAGS", "RAZORS"];
     var _jsRecycleItems = ["CANS", "TIN FOIL"];
     var _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
+    var _displayArr = [];
 
     $(document).ready(function(){
 
@@ -180,11 +181,29 @@
 
         var organic1 = Math.floor(Math.random() * _jsOrganicItems.length);
         var organic2 = Math.floor(Math.random() * _jsOrganicItems.length);
-        $("#displayItem").html(_jsGarbageItems[garbage1]);
+
+        _displayArr = [{type: "g", item: _jsGarbageItems[garbage1]}, {type: "g", item: _jsGarbageItems[garbage2]}
+                        , {type: "r", item: _jsRecycleItems[recycle1]}, {type: "r", item: _jsRecycleItems[recycle2]}
+                        , {type: "o", item: _jsOrganicItems[organic1]}, {type: "o", item: _jsOrganicItems[organic2]}
+                        ];
+
+        
+        displayNext();
+        
         console.log(_jsGarbageItems);
         console.log(garbage1)
 
     }//(End Of) Function
+
+    function displayNext()
+    {
+        var nextIndex = 1;
+        if(_displayArr.length > 1)
+        {
+            nextIndex = Math.floor(Math.random() * _displayArr.length);
+        }
+        $("#displayItem").html(_displayArr[nextIndex].item);
+    }
 
     // function readDataFromUWaterlooSite()
     // {
@@ -226,7 +245,7 @@
         var $w = $(window).width();
         var $h = $(window).height();
 
-        $("#displayItem").css({top: "20px", left: $w/2+"px"});
+        $("#displayItem").css({top: "20px", left: ($w/2 -150 )+"px"});
 
         var garbageBinWidth = $w/7;
         var gargbageBinTop = ($h-250+(10* (garbageBinWidth * 0.021)));
