@@ -132,6 +132,10 @@
 </html>
 
 <script type="text/javascript">
+    var _jsGarbageItems = [];
+    var _jsRecycleItems = [];
+    var _jsOrganicItems = [];
+
     $(document).ready(function(){
 
         showWelcomeDialog();
@@ -153,7 +157,9 @@
         //hide the dialog
         setTimeout(function(){$('#myModal').modal('hide');}, 2000);
         //readDataFromUWaterlooSite();
-        readDataFromGarbageTxt();
+        readDataFromTxtFiles("garbageItems.txt", _jsGarbageItems);
+        readDataFromTxtFiles("organicItems.txt", _jsOrganicItems);
+        readDataFromTxtFiles("recycleItems.txt", _jsRecycleItems);
 
     }//(End Of) Function showWelcomeDialog()
 
@@ -174,17 +180,17 @@
 
     // }//(End Of) function
 
-    function readDataFromGarbageTxt()
+    function readDataFromTxtFiles(filename, arrayName)
     {
         
         $.ajax({
-            url:'garbageItems.txt',
+            url:filename,
             type:'GET',
             dataType: "text",
             success: function(response)
             {
-                data = $.csv.toArrays(response);
-                console.log(data);
+                arrayName = $.csv.toArrays(response);
+                //console.log(data);
             }
         });
         
