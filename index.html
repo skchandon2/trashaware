@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <div id="displayItem">
+        <div id="displayItem" style="border: 3px solid #777; position: absolute; padding: 10px; font-weight: bold; font-size: 21px">
         </div>
 
         <!--Bins-->
@@ -135,9 +135,9 @@
 </html>
 
 <script type="text/javascript">
-    var _jsGarbageItems = [];
-    var _jsRecycleItems = [];
-    var _jsOrganicItems = [];
+    var _jsGarbageItems = ["CHIP BAGS", "RAZORS"];
+    var _jsRecycleItems = ["CANS", "TIN FOIL"];
+    var _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
 
     $(document).ready(function(){
 
@@ -179,7 +179,9 @@
 
         var organic1 = Math.floor(Math.random() * _jsOrganicItems.length);
         var organic2 = Math.floor(Math.random() * _jsOrganicItems.length);
-        $("#displayItem").html(_jsGarbageItems[garbage1])
+        $("#displayItem").html(_jsGarbageItems[garbage1]);
+        console.log(_jsGarbageItems);
+        console.log(garbage1)
 
     }//(End Of) Function
 
