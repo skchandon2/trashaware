@@ -158,35 +158,36 @@
     }//(End Of) Function showWelcomeDialog()
 
 
-    function readDataFromUWaterlooSite()
+    // function readDataFromUWaterlooSite()
+    // {
+
+    //     $.ajax({
+    //         url:'garbageSorting.txt',
+    //         type:'GET',
+    //         success: function(data)
+    //         {
+    //             //$('#content').html($(data).find('#firstHeading').html());
+    //             var listOfItems = $(data).find(".expandable");
+    //                     console.log(listOfItems);
+    //         }
+    //     });
+
+    // }//(End Of) function
+
+    function readDataFromGarbageTxt()
     {
+        
         $.ajax({
-            url:'garbageSorting.txt',
+            url:'garbageItems.txt',
             type:'GET',
             dataType: "text",
             success: function(response)
             {
-                //$('#content').html($(data).find('#firstHeading').html());
                 data = $.csv.toArrays(response);
                 console.log(data);
             }
         });
-
-
-    }//(End Of) function
-
-    function readDataFromGarbageTxt()
-    {
-        $.ajax({
-            url:'garbageItems.txt',
-            type:'GET',
-            success: function(data)
-            {
-                //$('#content').html($(data).find('#firstHeading').html());
-                var listOfItems = $(data).find(".expandable");
-                        console.log(listOfItems);
-            }
-        });
+        
 
 
     }//(End Of) function
