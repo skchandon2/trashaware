@@ -62,6 +62,9 @@
             </div>
         </div>
 
+        <div id="displayItem">
+        </div>
+
         <!--Bins-->
         <div id="garbage_bin" style="position: absolute; left: 20px; top: 0px">            
             <svg id="garbage_bin_svg" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="140px" height="140px">
@@ -140,6 +143,7 @@
 
         showWelcomeDialog();
         positionBins();
+        setTimeout(function(){showRandomSixItems()}, 2400);
 
     });//(End Of) Document.ready
 
@@ -161,8 +165,23 @@
         readDataFromTxtFiles("organicItems.txt", _jsOrganicItems);
         readDataFromTxtFiles("recycleItems.txt", _jsRecycleItems);
 
+        
+
     }//(End Of) Function showWelcomeDialog()
 
+    function showRandomSixItems()
+    {
+        var garbage1 = Math.floor(Math.random() * _jsGarbageItems.length); 
+        var garbage2 = Math.floor(Math.random() * _jsGarbageItems.length);
+
+        var recycle1 = Math.floor(Math.random() * _jsRecycleItems.length);
+        var recycle2 = Math.floor(Math.random() * _jsRecycleItems.length);
+
+        var organic1 = Math.floor(Math.random() * _jsOrganicItems.length);
+        var organic2 = Math.floor(Math.random() * _jsOrganicItems.length);
+        $("#displayItem").html(_jsGarbageItems[garbage1])
+
+    }//(End Of) Function
 
     // function readDataFromUWaterlooSite()
     // {
@@ -203,6 +222,8 @@
     {
         var $w = $(window).width();
         var $h = $(window).height();
+
+        $("#displayItem").css({top: "20px", left: $w/2+"px"});
 
         var garbageBinWidth = $w/7;
         var gargbageBinTop = ($h-250+(10* (garbageBinWidth * 0.021)));
