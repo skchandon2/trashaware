@@ -64,6 +64,7 @@
 
         <div id="displayItem" style="border: 3px solid #777; position: absolute; padding: 10px; font-weight: bold; font-size: 21px">
         </div>
+        <div id="debugx"></div>
 
         <!--Bins-->
         <div id="garbage_bin" style="position: absolute; left: 20px; top: 0px">            
@@ -243,25 +244,34 @@
         //console.log($("#recycle_bin").offset().top);
         //console.log($("#green_bin").offset().top);
         var height_diff_const = 0.16;
+        var greenbindebux = "";
         if($w>1100)
         {
             height_diff_const = 0.16 + ($w*0.00015); 
+            greenbindebux += "height_diff_const = [" + height_diff_const +"], ";
         }
         var height_diff_factor = ($("#recycle_bin_corepath").offset().top - $("#recycle_bin").offset().top) - ($("#greenbin_core_path").offset().top * height_diff_const);
-        
+        greenbindebux += "height_diff_factor = [" + height_diff_factor +"], ";
 
         var greenBinWidth = $w/5;
+        greenbindebux += "greenBinWidth = [" + greenBinWidth +"], ";
+
         var greenBinTop = ($h-(320 - (greenBinWidth-($w * 0.1)))) + height_diff_factor;//($h-240+(10*(greenBinWidth * 0.001)));
+        greenbindebux += "greenBinTop = [" + greenBinTop +"], ";
+
         if((greenBinTop+greenBinWidth-100)>$h)
         {
             console.log(greenBinTop+greenBinWidth)
             console.log($h)
             greenBinTop = $("#recycle_bin_corepath").offset().top -25 ; 
+            greenbindebux += " (IF TOTAL HEIGHT GREATER THAN WINDOW HEIGHT) greenBinTop = [" + greenBinTop +"], ";
         }
         if(greenBinTop < 100)
         {
             greenBinTop = $("#recycle_bin_corepath").offset().top -25 ;
+            greenbindebux += " (IF greenBinTop< 100 ) greenBinTop = [" + greenBinTop +"], ";
         }
+        $("#debugx").append("<span>" + greenbindebux + "</span>")
         $("#green_bin").css({top: greenBinTop + "px", left: ($w/2 - ( greenBinWidth-($w/4)))+"px", width: greenBinWidth+"px"});
         $("#green_bin_svg").attr("width", greenBinWidth);
 
