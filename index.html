@@ -178,9 +178,9 @@
         //hide the dialog
         setTimeout(function(){$('#myModal').modal('hide');}, 2000);
         //readDataFromUWaterlooSite();
-        readDataFromTxtFiles("garbageItems.txt", _jsGarbageItems);
-        readDataFromTxtFiles("organicItems.txt", _jsOrganicItems);
-        readDataFromTxtFiles("recycleItems.txt", _jsRecycleItems);
+        readDataForGarbageItemsFromTxtFiles("garbageItems.txt");
+        readDataForOrganicItemsFromTxtFiles("organicItems.txt");
+        readDataForRecycleItemsFromTxtFiles("recycleItems.txt");
         console.log(_jsGarbageItems);
         console.log(_jsOrganicItems);
         console.log(_jsRecycleItems);
@@ -278,7 +278,7 @@
 
     // }//(End Of) function
 
-    function readDataFromTxtFiles(filename, arrayName)
+    function readDataForGarbageItemsFromTxtFiles(filename)
     {
         
         $.ajax({
@@ -288,7 +288,49 @@
             async: false,
             success: function(response)
             {
-                arrayName = $.csv.toArrays(response);
+                _jsGarbageItems = $.csv.toArrays(response);
+                //console.log(data);
+            }
+        });
+        console.log("filename: " + filename + "read complete");
+        console.log(arrayName);
+        
+
+
+    }//(End Of) function
+
+    function readDataForRecycleItemsFromTxtFiles(filename)
+    {
+        
+        $.ajax({
+            url:filename,
+            type:'GET',
+            dataType: "text",
+            async: false,
+            success: function(response)
+            {
+                _jsRecycleItems = $.csv.toArrays(response);
+                //console.log(data);
+            }
+        });
+        console.log("filename: " + filename + "read complete");
+        console.log(arrayName);
+        
+
+
+    }//(End Of) function
+
+    function readDataForOrganicItemsFromTxtFiles(filename)
+    {
+        
+        $.ajax({
+            url:filename,
+            type:'GET',
+            dataType: "text",
+            async: false,
+            success: function(response)
+            {
+                _jsOrganicItems = $.csv.toArrays(response);
                 //console.log(data);
             }
         });
