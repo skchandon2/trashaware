@@ -141,18 +141,22 @@
 </html>
 
 <script type="text/javascript">
-    var _jsGarbageItems = ["CHIP BAGS", "RAZORS"];
-    var _jsRecycleItems = ["CANS", "TIN FOIL"];
-    var _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
+    var _jsGarbageItems = [];
+    var _jsRecycleItems = [];
+    var _jsOrganicItems = [];
     var _displayArr = [];
     var _jsScore = 0;
     var _jsTurnCount = 0;
 
     $(document).ready(function(){
 
+        _jsGarbageItems = ["CHIP BAGS", "RAZORS"];
+        _jsRecycleItems = ["CANS", "TIN FOIL"];
+        _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
         showWelcomeDialog();
         positionBins();
-        setTimeout(function(){showRandomSixItems()}, 2400);
+        showRandomSixItems();
+        //setTimeout(function(){showRandomSixItems()}, 2400);
         $("#garbage_bin, #recycle_bin, #green_bin").click(clickBin);
 
 
