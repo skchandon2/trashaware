@@ -234,9 +234,9 @@
 
     function displayNext()
     {
-        if(_displayArr.length<1)
+        if(_displayArr.length<=0)
         {
-            $("#displayItem").html("");
+            $("#displayItem").html("End Game!");
             $("#displayItem").data("type", "");
             return;
         }
@@ -357,8 +357,9 @@
     function clickBin(e)
     {
         //e.preventDefault();
-        console.log("bin clicked")
-        var element = event.target.nodeName
+        console.log("bin clicked");
+        
+        var element = event.target.nodeName;
         var $binDiv = null;
         if(element=="DIV")
         {
@@ -375,7 +376,6 @@
         if($("#displayItem").data("type") == $binDiv.data("bintype"))
         {
             _jsScore ++ ;
-
 
         }
         else
