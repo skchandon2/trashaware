@@ -155,7 +155,7 @@
         _jsRecycleItems = ["CANS", "TIN FOIL"];
         _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
         showWelcomeDialog();
-        console.log("Welcome Dialog and File Read complete!");
+        //console.log("Welcome Dialog and File Read complete!");
         positionBins();
         showRandomSixItems();
         //setTimeout(function(){showRandomSixItems()}, 2400);
@@ -181,9 +181,9 @@
         readDataForGarbageItemsFromTxtFiles("garbageItems.txt");
         readDataForOrganicItemsFromTxtFiles("organicItems.txt");
         readDataForRecycleItemsFromTxtFiles("recycleItems.txt");
-        console.log(_jsGarbageItems);
-        console.log(_jsOrganicItems);
-        console.log(_jsRecycleItems);
+        //console.log(_jsGarbageItems);
+        //console.log(_jsOrganicItems);
+        //console.log(_jsRecycleItems);
 
     }//(End Of) Function showWelcomeDialog()
 
@@ -254,8 +254,8 @@
             
             //console.log(nextIndex)
         }
-        console.log(nextIndex);
-        console.log(_displayArr);
+        //console.log(nextIndex);
+        //console.log(_displayArr);
         $("#displayItem").html(_displayArr[nextIndex].item);
         $("#displayItem").data("type", _displayArr[nextIndex].type);
         //console.log(_displayArr)
@@ -292,7 +292,7 @@
                 //console.log(data);
             }
         });
-        console.log("filename: " + filename + "read complete");
+        //console.log("filename: " + filename + "read complete");
         //console.log(arrayName);
         
 
@@ -313,7 +313,7 @@
                 //console.log(data);
             }
         });
-        console.log("filename: " + filename + "read complete");
+        //console.log("filename: " + filename + "read complete");
         //console.log(arrayName);
         
 
@@ -334,7 +334,7 @@
                 //console.log(data);
             }
         });
-        console.log("filename: " + filename + "read complete");
+        //console.log("filename: " + filename + "read complete");
         //console.log(arrayName);
         
 
