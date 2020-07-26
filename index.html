@@ -150,10 +150,12 @@
 
     $(document).ready(function(){
 
+        console.log("Initial Definition of the Items");
         _jsGarbageItems = ["CHIP BAGS", "RAZORS"];
         _jsRecycleItems = ["CANS", "TIN FOIL"];
         _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
         showWelcomeDialog();
+        console.log("Welcome Dialog and File Read complete!");
         positionBins();
         showRandomSixItems();
         //setTimeout(function(){showRandomSixItems()}, 2400);
