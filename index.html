@@ -180,29 +180,42 @@
 
     function showRandomSixItems()
     {
+        
         var garbageItemsClone = _jsGarbageItems.slice();
+        console.log(garbageItemsClone.length);
         var garbage1 = Math.floor(Math.random() * garbageItemsClone.length);
         var garbageItem1 = garbageItemsClone[garbage1]; 
-        garbageItemsClone.splice(garbage1, 0);
+        garbageItemsClone.splice(garbage1, 1);
+        //console.log(garbage1);
+        console.log(garbageItemsClone.length);
+
+        
         var garbage2 = Math.floor(Math.random() * garbageItemsClone.length);
-        var garbageItem2 = garbageItemsClone[garbage2];
-        garbageItemsClone.splice(garbage2, 0); 
+        var garbageItem2 = garbageItemsClone[garbage2];        
+        garbageItemsClone.splice(garbage2, 1); 
+        //console.log(garbage2);
 
         var recycleItemsClone = _jsRecycleItems.slice();
         var recycle1 = Math.floor(Math.random() * recycleItemsClone.length);
         var recycleItem1 = recycleItemsClone[recycle1];
-        recycleItemsClone.splice(recycle1, 0);
+        recycleItemsClone.splice(recycle1, 1);
+        console.log(recycle1);
+
         var recycle2 = Math.floor(Math.random() * recycleItemsClone.length);
         var recycleItem2 = recycleItemsClone[recycle2];
-        recycleItemsClone.splice(recycle2, 0);
+        recycleItemsClone.splice(recycle2, 1);
+        console.log(recycle2);
 
         var organicItemsClone = _jsOrganicItems.slice();
         var organic1 = Math.floor(Math.random() * organicItemsClone.length);
         var organicItem1 = organicItemsClone[organic1];
-        organicItemsClone.splice(organic1, 0);
+        organicItemsClone.splice(organic1, 1);
+        console.log(organic1);
+
         var organic2 = Math.floor(Math.random() * organicItemsClone.length);
         var organicItem2 = organicItemsClone[organic2];
-        organicItemsClone.splice(organic2, 0);
+        organicItemsClone.splice(organic2, 1);
+        console.log(organic2);
 
         _displayArr = [{type: "g", item: garbageItem1}, {type: "g", item: garbageItem2}
                         , {type: "r", item: recycleItem1}, {type: "r", item: recycleItem2}
