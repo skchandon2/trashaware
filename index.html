@@ -180,25 +180,40 @@
 
     function showRandomSixItems()
     {
-        var garbage1 = Math.floor(Math.random() * _jsGarbageItems.length); 
-        var garbage2 = Math.floor(Math.random() * _jsGarbageItems.length);
+        var garbageItemsClone = _jsGarbageItems.slice();
+        var garbage1 = Math.floor(Math.random() * garbageItemsClone.length);
+        var garbageItem1 = garbageItemsClone[garbage1]; 
+        garbageItemsClone.splice(garbage1, 0);
+        var garbage2 = Math.floor(Math.random() * garbageItemsClone.length);
+        var garbageItem2 = garbageItemsClone[garbage2];
+        garbageItemsClone.splice(garbage2, 0); 
 
-        var recycle1 = Math.floor(Math.random() * _jsRecycleItems.length);
-        var recycle2 = Math.floor(Math.random() * _jsRecycleItems.length);
+        var recycleItemsClone = _jsRecycleItems.slice();
+        var recycle1 = Math.floor(Math.random() * recycleItemsClone.length);
+        var recycleItem1 = recycleItemsClone[recycle1];
+        recycleItemsClone.splice(recycle1, 0);
+        var recycle2 = Math.floor(Math.random() * recycleItemsClone.length);
+        var recycleItem2 = recycleItemsClone[recycle2];
+        recycleItemsClone.splice(recycle2, 0);
 
-        var organic1 = Math.floor(Math.random() * _jsOrganicItems.length);
-        var organic2 = Math.floor(Math.random() * _jsOrganicItems.length);
+        var organicItemsClone = _jsOrganicItems.slice();
+        var organic1 = Math.floor(Math.random() * organicItemsClone.length);
+        var organicItem1 = organicItemsClone[organic1];
+        organicItemsClone.splice(organic1, 0);
+        var organic2 = Math.floor(Math.random() * organicItemsClone.length);
+        var organicItem2 = organicItemsClone[organic2];
+        organicItemsClone.splice(organic2, 0);
 
-        _displayArr = [{type: "g", item: _jsGarbageItems[garbage1]}, {type: "g", item: _jsGarbageItems[garbage2]}
-                        , {type: "r", item: _jsRecycleItems[recycle1]}, {type: "r", item: _jsRecycleItems[recycle2]}
-                        , {type: "o", item: _jsOrganicItems[organic1]}, {type: "o", item: _jsOrganicItems[organic2]}
+        _displayArr = [{type: "g", item: garbageItem1}, {type: "g", item: garbageItem2}
+                        , {type: "r", item: recycleItem1}, {type: "r", item: recycleItem2}
+                        , {type: "o", item: organicItem1}, {type: "o", item: organicItem2}
                         ];
 
-        
+        console.log(_displayArr)
         displayNext();
         
-        console.log(_jsGarbageItems);
-        console.log(garbage1)
+        //console.log(_jsGarbageItems);
+        //console.log(garbage1)
 
     }//(End Of) Function
 
@@ -214,11 +229,13 @@
         if(_displayArr.length > 1)
         {
             nextIndex = Math.floor(Math.random() * _displayArr.length);
+            console.log(nextIndex)
         }
+        //console.log(nextIndex)
         $("#displayItem").html(_displayArr[nextIndex].item);
         $("#displayItem").data("type", _displayArr[nextIndex].type);
-
-        _displayArr.splice(nextIndex,1);
+        console.log(_displayArr)
+        _displayArr.splice(nextIndex,0);
     }
 
     // function readDataFromUWaterlooSite()
