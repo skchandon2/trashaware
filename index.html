@@ -133,6 +133,7 @@
             <div class="modal-footer">
               
               <button id="dialogBtnClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="dialogBtnPlay" type="button" class="btn btn-secondary" data-dismiss="modal">Play</button>
             </div>
           </div>
         </div>
@@ -176,7 +177,8 @@
         $('#myModal').modal('show');
 
         //hide the dialog
-        setTimeout(function(){$('#myModal').modal('hide');}, 2000);
+        //setTimeout(function(){$('#myModal').modal('hide');}, 2000);
+
         //readDataFromUWaterlooSite();
         readDataForGarbageItemsFromTxtFiles("garbageItems.txt");
         readDataForOrganicItemsFromTxtFiles("organicItems.txt");
@@ -184,6 +186,8 @@
         //console.log(_jsGarbageItems);
         //console.log(_jsOrganicItems);
         //console.log(_jsRecycleItems);
+
+        //setTimeout(function(){$('#myModal').modal('hide');}, 2000);
 
     }//(End Of) Function showWelcomeDialog()
 
@@ -245,6 +249,11 @@
         {
             $("#displayItem").html("End Game!");
             $("#displayItem").data("type", "");
+            //show modal
+            $('#myModal').modal('show');
+            _jsTurnCount = 0;
+            _jsScore = 0;
+            showRandomSixItems();
             return;
         }
         var nextIndex = 0;
